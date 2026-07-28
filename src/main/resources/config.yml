@@ -1,0 +1,9 @@
+# Discord channel ID used only for account linking codes.
+LinkingDiscordChannel: "000000000000000000"
+
+# Delete user code messages and bot replies after delay.
+RemoveMessages: true
+DeleteDelaySeconds: 10
+
+# Accept only numeric messages for linking.
+NumericCodeRegex: "^[0-9]+$"

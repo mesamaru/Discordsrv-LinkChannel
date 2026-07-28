@@ -1,0 +1,14 @@
+# Maven
+/target/
+
+# Local build tools
+/.tools/
+
+# IDE
+/.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
