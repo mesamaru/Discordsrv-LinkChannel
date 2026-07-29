@@ -19,7 +19,7 @@ mvn -DskipTests clean package
 ```
 
 Output jar:
-- `target/discordsrv-linkchannel-1.0.0.jar`
+- `target/discordsrv-linkchannel-1.1.0.jar`
 
 ## Config
 Edit `plugins/DiscordSRV-LinkChannel/config.yml` after first startup.
@@ -54,7 +54,7 @@ mvn -DskipTests clean package
 ```
 
 出力Jar:
-- `target/discordsrv-linkchannel-1.0.0.jar`
+- `target/discordsrv-linkchannel-1.1.0.jar`
 
 ## 設定
 初回起動後に以下を編集してください。

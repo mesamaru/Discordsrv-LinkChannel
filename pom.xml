@@ -6,7 +6,7 @@
 
     <groupId>dev.neonm</groupId>
     <artifactId>discordsrv-linkchannel</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>DiscordSRV-LinkChannel</name>
