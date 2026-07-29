@@ -22,35 +22,35 @@ public final class LinkChannelListener {
 
     @Subscribe
     public void onDiscordGuildMessageReceived(DiscordGuildMessageReceivedEvent event) {
-        if (!isAllowedLinkChannel(event.getGuild().getId(), event.getChannel().getId())) {
-            return;
-        }
-
-        if (event.getAuthor().isBot()) {
-            return;
-        }
-
-        String content = event.getMessage().getContentRaw();
-        if (content == null) {
-            return;
-        }
-
-        String normalized = content.trim();
-        if (normalized.isEmpty()) {
-            return;
-        }
-
-        if (!isLinkCode(normalized)) {
-            return;
-        }
-
-        AccountLinkManager accountLinkManager = DiscordSRV.getPlugin().getAccountLinkManager();
-        if (accountLinkManager == null) {
-            plugin.getLogger().warning("DiscordSRV AccountLinkManager is null. Skipping link request.");
-            return;
-        }
-
         try {
+            if (!isAllowedLinkChannel(event.getGuild().getId(), event.getChannel().getId())) {
+                return;
+            }
+
+            if (event.getAuthor().isBot()) {
+                return;
+            }
+
+            String content = event.getMessage().getContentRaw();
+            if (content == null) {
+                return;
+            }
+
+            String normalized = content.trim();
+            if (normalized.isEmpty()) {
+                return;
+            }
+
+            if (!isLinkCode(normalized)) {
+                return;
+            }
+
+            AccountLinkManager accountLinkManager = DiscordSRV.getPlugin().getAccountLinkManager();
+            if (accountLinkManager == null) {
+                plugin.getLogger().warning("DiscordSRV AccountLinkManager is null. Skipping link request.");
+                return;
+            }
+
             String reply = accountLinkManager.process(normalized, event.getAuthor().getId());
             if (reply != null && !reply.isBlank()) {
                 event.getChannel().sendMessage(reply).queue(sent -> {
@@ -64,7 +64,7 @@ public final class LinkChannelListener {
                 deleteMessageLater(event.getMessage(), plugin.getConfig().getLong("DeleteDelaySeconds", 10L));
             }
         } catch (Throwable t) {
-            plugin.getLogger().warning("Failed to process Discord link request: " + t.getMessage());
+            plugin.getLogger().warning("Failed to process Discord link request. Check config.yml syntax (spaces only, no TAB): " + t.getMessage());
         }
     }
 

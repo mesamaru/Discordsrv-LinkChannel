@@ -1,10 +1,10 @@
 # Preferred format: multiple Discord server/channel pairs.
 # Add one entry per Discord server where you want to accept link codes.
 LinkingTargets:
-	- GuildId: "111111111111111111"
-		ChannelId: "222222222222222222"
-	- GuildId: "333333333333333333"
-		ChannelId: "444444444444444444"
+  - GuildId: "111111111111111111"
+    ChannelId: "222222222222222222"
+  - GuildId: "333333333333333333"
+    ChannelId: "444444444444444444"
 
 # Legacy single-channel setting (kept for backward compatibility).
 # Used only when LinkingTargets is empty.
