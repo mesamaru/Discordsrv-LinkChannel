@@ -27,10 +27,10 @@ Edit `plugins/DiscordSRV-LinkChannel/config.yml` after first startup.
 Example (multiple guild/channel pairs):
 ```yml
 LinkingTargets:
-	- GuildId: "111111111111111111"
-		ChannelId: "222222222222222222"
-	- GuildId: "333333333333333333"
-		ChannelId: "444444444444444444"
+  - GuildId: "111111111111111111"
+    ChannelId: "222222222222222222"
+  - GuildId: "333333333333333333"
+    ChannelId: "444444444444444444"
 ```
 
 ---
@@ -63,8 +63,8 @@ mvn -DskipTests clean package
 設定例（複数サーバー/チャンネル）:
 ```yml
 LinkingTargets:
-	- GuildId: "111111111111111111"
-		ChannelId: "222222222222222222"
-	- GuildId: "333333333333333333"
-		ChannelId: "444444444444444444"
+  - GuildId: "111111111111111111"
+    ChannelId: "222222222222222222"
+  - GuildId: "333333333333333333"
+    ChannelId: "444444444444444444"
 ```
