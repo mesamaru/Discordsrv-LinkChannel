@@ -6,6 +6,8 @@ import github.scarsz.discordsrv.api.events.DiscordGuildMessageReceivedEvent;
 import github.scarsz.discordsrv.objects.managers.AccountLinkManager;
 
 import java.lang.reflect.Method;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -20,12 +22,7 @@ public final class LinkChannelListener {
 
     @Subscribe
     public void onDiscordGuildMessageReceived(DiscordGuildMessageReceivedEvent event) {
-        String linkingChannelId = plugin.getConfig().getString("LinkingDiscordChannel", "").trim();
-        if (linkingChannelId.isEmpty()) {
-            return;
-        }
-
-        if (!event.getChannel().getId().equals(linkingChannelId)) {
+        if (!isAllowedLinkChannel(event.getGuild().getId(), event.getChannel().getId())) {
             return;
         }
 
@@ -69,6 +66,34 @@ public final class LinkChannelListener {
         } catch (Throwable t) {
             plugin.getLogger().warning("Failed to process Discord link request: " + t.getMessage());
         }
+    }
+
+    private boolean isAllowedLinkChannel(String guildId, String channelId) {
+        List<?> targets = plugin.getConfig().getList("LinkingTargets");
+        if (targets != null && !targets.isEmpty()) {
+            for (Object target : targets) {
+                if (!(target instanceof Map<?, ?> map)) {
+                    continue;
+                }
+
+                Object guildValue = map.get("GuildId");
+                Object channelValue = map.get("ChannelId");
+                String configuredGuildId = guildValue == null ? "" : String.valueOf(guildValue).trim();
+                String configuredChannelId = channelValue == null ? "" : String.valueOf(channelValue).trim();
+                if (configuredGuildId.isEmpty() || configuredChannelId.isEmpty()) {
+                    continue;
+                }
+
+                if (configuredGuildId.equals(guildId) && configuredChannelId.equals(channelId)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Backward compatibility: allow legacy single-channel config.
+        String legacyChannelId = plugin.getConfig().getString("LinkingDiscordChannel", "").trim();
+        return !legacyChannelId.isEmpty() && legacyChannelId.equals(channelId);
     }
 
     private boolean isLinkCode(String value) {

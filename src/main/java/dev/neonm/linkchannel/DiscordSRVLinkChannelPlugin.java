@@ -24,7 +24,7 @@ public final class DiscordSRVLinkChannelPlugin extends JavaPlugin {
 
         listener = new LinkChannelListener(this);
         DiscordSRV.api.subscribe(listener);
-        getLogger().info("DiscordSRV-LinkChannel-Latest enabled.");
+        getLogger().info("DiscordSRV-LinkChannel enabled.");
     }
 
     @Override
@@ -52,7 +52,7 @@ public final class DiscordSRVLinkChannelPlugin extends JavaPlugin {
             }
 
             reloadConfig();
-            sender.sendMessage("DiscordSRV-LinkChannel-Latest config reloaded.");
+            sender.sendMessage("DiscordSRV-LinkChannel config reloaded.");
             return true;
         }
         return false;
