@@ -1,4 +1,4 @@
-# DiscordSRV-LinkChannel-Latest
+# DiscordSRV-LinkChannel
 
 DiscordSRV account linking addon for Paper servers.
 
@@ -19,10 +19,10 @@ mvn -DskipTests clean package
 ```
 
 Output jar:
-- `target/discordsrv-linkchannel-latest-1.0.0.jar`
+- `target/discordsrv-linkchannel-1.0.0.jar`
 
 ## Config
-Edit `plugins/DiscordSRV-LinkChannel-Latest/config.yml` after first startup.
+Edit `plugins/DiscordSRV-LinkChannel/config.yml` after first startup.
 
 Example (multiple guild/channel pairs):
 ```yml
@@ -54,11 +54,11 @@ mvn -DskipTests clean package
 ```
 
 出力Jar:
-- `target/discordsrv-linkchannel-latest-1.0.0.jar`
+- `target/discordsrv-linkchannel-1.0.0.jar`
 
 ## 設定
 初回起動後に以下を編集してください。
-- `plugins/DiscordSRV-LinkChannel-Latest/config.yml`
+- `plugins/DiscordSRV-LinkChannel/config.yml`
 
 設定例（複数サーバー/チャンネル）:
 ```yml

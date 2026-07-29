@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dev.neonm</groupId>
-    <artifactId>discordsrv-linkchannel-latest</artifactId>
+    <artifactId>discordsrv-linkchannel</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>DiscordSRV-LinkChannel-Latest</name>
-    <description>Discord channel based account linking addon for latest DiscordSRV</description>
+    <name>DiscordSRV-LinkChannel</name>
+    <description>Discord channel based account linking addon for DiscordSRV</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

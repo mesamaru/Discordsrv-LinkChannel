@@ -1,4 +1,4 @@
-name: DiscordSRV-LinkChannel-Latest
+name: DiscordSRV-LinkChannel
 version: 1.0.0
 main: dev.neonm.linkchannel.DiscordSRVLinkChannelPlugin
 api-version: '1.21'
